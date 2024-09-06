@@ -1,25 +1,11 @@
 # deferable
-wrapper for promises to allow to defer the execution
+wrapper for promises to allow to defer the execution rewritten in typescript and built as es module 
 
 
 ## 
 [![npm version](https://badge.fury.io/js/angular2-expandable-list.svg)](https://badge.fury.io/js/angular2-expandable-list)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-# Deferable
-
-> Wrapper for promises to allow to defer the execution.
-
-## Prerequisites
-
-None. It only requires Promise capable version javascript interpreter.
-e.g. Node version(0.12 and higher)
-
-```sh
-$ npm -v && node -v
-6.4.1
-v8.16.0
-```
 
 ## Table of contents
 
@@ -50,10 +36,14 @@ $ npm run test
 $ npm run build
 ```
 
-## Installation
+link your project to the local copy
+```sh
+$ npm run build
+$ cd /.../your_project
+$ npm link -S /.../ts-deferable-folder
+```
 
-**BEFORE YOU INSTALL:** please read the [prerequisites](#prerequisites)
-
+## Installation with npm
 Start with cloning this repo on your local machine:
 
 ```sh
@@ -63,7 +53,7 @@ $ npm install deferable
 
 ## Usage
 
-Factory Flavor: **Defer**
+Factory Flavor: **defer**
 
 This is a simple factory method returning a holder object for promise and the 
 
@@ -71,10 +61,10 @@ Inside your project:
 
 ```js
 import {
-    Defer
+    defer
 } from 'deferable'
 
-const { result, ...lever } = Defer(function() {
+const { result, ...lever } = defer(function() {
     // returning the actual operation which returns promise e.g.
     return http.call(url)
     }, "result")
@@ -94,17 +84,17 @@ It returns an object with three keys: `promise, trigger, called`;
     - called is a flag
 
 
-Class flavor: **Deferred, DeferredTrigger**
+Class flavor: **DeferredPromise, DeferredTrigger**
 
 In essence the class implementation of the above.
-Objects `Deferred` and `DeferredTrigger` is typeof **Promise** should your project require this feature.
+Objects `DeferredPromise` and `DeferredTrigger` is typeof **Promise** should your project require this feature.
 
 ```js
 import {
     DefferedTrigger
 } from 'deferable';
 
-const deferred = new Deferred(() => http.call(url))
+const deferred = new DefferedTrigger(() => http.call(url))
 
 // passing a promise to where is it expected
 consumerService(deferred.promise)
@@ -118,10 +108,10 @@ deferred.trigger()
 
 ```js
 import {
-    Deffered
+    DeferredPromise
 } from 'deferable';
 
-const deferred = new Deffered()
+const deferred = new DeferredPromise()
 
 // passing a promise to where is it expected
 consumerService(deferred)
@@ -150,18 +140,12 @@ inside your local `dist/` folder
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
 1.  Fork it!
 2.  Create your feature branch: `git checkout -b my-new-feature`
 3.  Add your changes: `git add .`
 4.  Commit your changes: `git commit -am 'Add some feature'`
 5.  Push to the branch: `git push origin my-new-feature`
 6.  Submit a pull request :sunglasses:
-
-## Credits
-
-TODO: Write credits
 
 ## Versioning
 
@@ -171,7 +155,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 * **Andrej Bartko** - *Initial work* - [AndrejBartko](https://github.com/webduvet)
 
-See also the list of [contributors](https://github.com/webduvet/deferable/contributors) who participated in this project.
+## Contributors
+
+* **sinkapoy** - *typescript version and refactoring* - [sinkapoy](https://github.com/sinkapoy)
 
 ## License
 
