@@ -1,8 +1,8 @@
 {
 	"name": "ts-deferable",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "the wrapper for creating deferred Promise and actionable promise",
-	"types": "./dist/code/Deferable.d.ts",
+	"types": "./dist/src/Deferable.d.ts",
 	"main": "./dist/Deferable.js",
 	"files": [
 		"dist"
