@@ -21,7 +21,7 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/sinkapoy/deferable"
+		"url": "git+https://github.com/sinkapoy/deferable.git"
 	},
 	"author": "Andrej Bartko",
 	"contributors": [
